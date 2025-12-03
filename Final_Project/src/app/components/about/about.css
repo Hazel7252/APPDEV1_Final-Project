@@ -1,0 +1,135 @@
+.page-container {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #0f1923 0%, #1a2a3a 100%);
+  color: #ece8e1;
+  padding: 2rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-size: 4rem;
+  color: #ff4655;
+  margin-bottom: 1rem;
+  font-family: 'Tungsten-Bold', sans-serif;
+  text-transform: uppercase;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  color: #8b978f;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.about-section h2 {
+  color: #ff4655;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  border-bottom: 2px solid #ff4655;
+  padding-bottom: 0.5rem;
+}
+
+.about-section p {
+  line-height: 1.7;
+  color: #8b978f;
+  font-size: 1.1rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.feature-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #333;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  border-color: #ff4655;
+  box-shadow: 0 10px 25px rgba(255, 70, 85, 0.2);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-item h3 {
+  color: #ece8e1;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.feature-item p {
+  color: #8b978f;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.requirements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.req-category {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #333;
+}
+
+.req-category h3 {
+  color: #ff4655;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.req-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.req-category li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #8b978f;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.req-category li:before {
+  content: '✓';
+  color: #ff4655;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.req-category li:last-child {
+  border-bottom: none;
+}

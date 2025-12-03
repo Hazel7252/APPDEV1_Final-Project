@@ -1,0 +1,240 @@
+.page-container {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #0f1923 0%, #1a2a3a 100%);
+  color: #ece8e1;
+  padding: 2rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-size: 4rem;
+  color: #ff4655;
+  margin-bottom: 1rem;
+  font-family: 'Tungsten-Bold', sans-serif;
+  text-transform: uppercase;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  color: #8b978f;
+}
+
+.content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 4rem;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #333;
+  border-top: 4px solid #ff4655;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.error {
+  text-align: center;
+  padding: 4rem;
+  color: #ff4655;
+}
+
+.retry-btn {
+  background: #ff4655;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.retry-btn:hover {
+  background: #e63e4d;
+}
+
+/* Tiers Container */
+.tiers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.rank-category {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rank-category.has-tiers {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.category-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.category-header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-family: 'Tungsten-Bold', sans-serif;
+  letter-spacing: 2px;
+}
+
+.category-divider {
+  height: 3px;
+  width: 100px;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Tiers Grid */
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.tier-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tier-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff4655;
+  box-shadow: 0 10px 25px rgba(255, 70, 85, 0.2);
+}
+
+.tier-icon {
+  margin-bottom: 1rem;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tier-image {
+  max-height: 70px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.tier-info {
+  margin-bottom: 0.5rem;
+}
+
+.tier-name {
+  color: #ece8e1;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tier-division {
+  color: #8b978f;
+  font-size: 0.9rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.tier-color {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Special styling for Radiant tier */
+.rank-category:last-child .tier-card {
+  background: linear-gradient(135deg, rgba(255, 209, 102, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border: 1px solid rgba(255, 209, 102, 0.3);
+}
+
+.rank-category:last-child .tier-card:hover {
+  border-color: #FFD166;
+  box-shadow: 0 10px 25px rgba(255, 209, 102, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tiers-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .rank-category {
+    padding: 1.5rem;
+  }
+  
+  .category-header h2 {
+    font-size: 2rem;
+  }
+  
+  .tier-card {
+    padding: 1rem;
+  }
+  
+  .tier-icon {
+    height: 60px;
+  }
+  
+  .tier-image {
+    max-height: 50px;
+  }
+  
+  .page-header h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tiers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .page-container {
+    padding: 1rem;
+  }
+  
+  .category-header h2 {
+    font-size: 1.8rem;
+  }
+}

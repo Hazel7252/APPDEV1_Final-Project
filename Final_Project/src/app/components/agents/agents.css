@@ -1,0 +1,288 @@
+.page-container {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #0f1923 0%, #1a2a3a 100%);
+  color: #ece8e1;
+  padding: 2rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-size: 4rem;
+  color: #ff4655;
+  margin-bottom: 1rem;
+  font-family: 'Tungsten-Bold', sans-serif;
+  text-transform: uppercase;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  color: #8b978f;
+}
+
+.content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 4rem;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #333;
+  border-top: 4px solid #ff4655;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.error {
+  text-align: center;
+  padding: 4rem;
+  color: #ff4655;
+}
+
+.retry-btn {
+  background: #ff4655;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.retry-btn:hover {
+  background: #e63e4d;
+}
+
+/* Role Filter Buttons */
+.role-filters {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #333;
+  border-radius: 8px;
+  color: #ece8e1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.role-icon {
+  font-size: 1.2rem;
+}
+
+.role-name {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.role-info {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.role-info h3 {
+  color: #ff4655;
+  font-size: 1.5rem;
+}
+
+/* Agents Grid */
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.agent-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+}
+
+.agent-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff4655;
+  box-shadow: 0 10px 25px rgba(255, 70, 85, 0.2);
+}
+
+.agent-image {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(135deg, #333, #555);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.agent-image img {
+  max-height: 180px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.agent-role {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.role-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.agent-info {
+  padding: 1.5rem;
+}
+
+.agent-info h3 {
+  color: #ff4655;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.agent-description {
+  color: #8b978f;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.agent-abilities h4 {
+  color: #ece8e1;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.abilities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.ability {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.ability:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ability-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.ability-name {
+  font-size: 0.9rem;
+  color: #ece8e1;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 4rem;
+  color: #8b978f;
+}
+
+.no-results h3 {
+  color: #ff4655;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .agents-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .abilities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter-btn {
+    width: 200px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 3rem;
+  }
+  
+  .agent-image {
+    height: 150px;
+  }
+  
+  .agent-image img {
+    max-height: 130px;
+  }
+}

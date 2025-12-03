@@ -1,0 +1,51 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>COMPETITIVE TIERS</h1>
+    <p>Climb the ranks and prove your skill</p>
+  </div>
+
+  <div class="content">
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading competitive tiers...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error && !loading" class="error">
+      <p>{{ error }}</p>
+      <button (click)="loadCompetitiveTiers()" class="retry-btn">Retry</button>
+    </div>
+
+    <!-- Competitive Tiers Grid -->
+    <div *ngIf="!loading && !error" class="tiers-container">
+      <div *ngFor="let categoryKey of getRankCategoryKeys()" 
+           class="rank-category" 
+           [class.has-tiers]="rankCategories[categoryKey].tiers.length > 0">
+        
+        <div *ngIf="rankCategories[categoryKey].tiers.length > 0" class="category-header">
+          <h2 [style.color]="rankCategories[categoryKey].color">
+            {{ rankCategories[categoryKey].name }}
+          </h2>
+          <div class="category-divider" [style.background]="rankCategories[categoryKey].color"></div>
+        </div>
+
+        <div class="tiers-grid">
+          <div *ngFor="let tier of rankCategories[categoryKey].tiers" class="tier-card">
+            <div class="tier-icon">
+              <img [src]="tier.largeIcon || tier.smallIcon" 
+                   [alt]="tier.tierName" 
+                   class="tier-image"
+                   (error)="handleImageError($event)">
+            </div>
+            <div class="tier-info">
+              <h3 class="tier-name">{{ tier.tierName }}</h3>
+              <p class="tier-division">{{ tier.divisionName || 'Division' }}</p>
+            </div>
+            <div class="tier-color" [style.background]="tier.color || '#8b978f'"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

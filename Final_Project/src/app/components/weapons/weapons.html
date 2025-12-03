@@ -1,0 +1,41 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>WEAPONS</h1>
+    <p>Master the VALORANT arsenal</p>
+  </div>
+
+  <div class="content">
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading weapons...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error && !loading" class="error">
+      <p>{{ error }}</p>
+      <button (click)="loadWeapons()" class="retry-btn">Retry</button>
+    </div>
+
+    <!-- Weapons by Category -->
+    <div *ngIf="!loading && !error" class="weapons-by-category">
+      <div *ngFor="let category of getCategories()" class="weapon-category">
+        <h3>{{ category }}</h3>
+        <div class="weapons-grid">
+          <div *ngFor="let weapon of getWeaponsByCategory(category)" class="weapon-card">
+            <div class="weapon-image">
+              <img [src]="weapon.displayIcon" [alt]="weapon.displayName" (error)="handleImageError($event)">
+            </div>
+            <div class="weapon-info">
+              <h4>{{ weapon.displayName }}</h4>
+              <p class="weapon-cost">${{ weapon.shopData?.cost || 0 }}</p>
+              <div class="weapon-skins">
+                <span class="skin-count">{{ weapon.skins?.length || 0 }} skins</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

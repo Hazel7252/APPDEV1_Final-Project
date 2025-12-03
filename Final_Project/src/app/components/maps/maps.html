@@ -1,0 +1,37 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>MAPS</h1>
+    <p>Explore the battlefields of VALORANT</p>
+  </div>
+
+  <div class="content">
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading maps...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error && !loading" class="error">
+      <p>{{ error }}</p>
+      <button (click)="loadMaps()" class="retry-btn">Retry</button>
+    </div>
+
+    <!-- Maps Grid - Image Only -->
+    <div *ngIf="!loading && !error" class="maps-grid">
+      <div *ngFor="let map of maps" class="map-card">
+        <div class="map-image-container">
+          <img 
+            [src]="map.splash" 
+            [alt]="map.displayName" 
+            class="map-image"
+            (error)="handleImageError($event)"
+          >
+          <div class="map-overlay">
+            <h3 class="map-name">{{ map.displayName }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

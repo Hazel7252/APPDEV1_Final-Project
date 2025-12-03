@@ -1,0 +1,73 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>AGENTS</h1>
+  </div>
+
+  <div class="content">
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading agents...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error && !loading" class="error">
+      <p>{{ error }}</p>
+      <button (click)="loadAgents()" class="retry-btn">Retry</button>
+    </div>
+
+    <!-- Role Filter Buttons -->
+    <div *ngIf="!loading && !error" class="role-filters">
+      <div class="filter-buttons">
+        <button 
+          *ngFor="let role of roles" 
+          (click)="filterByRole(role.id)"
+          class="filter-btn"
+          [class.active]="selectedRole === role.id"
+          [style.border-color]="selectedRole === role.id ? getRoleColor(role.id) : '#333'"
+        >
+          <span class="role-name">{{ role.name }}</span>
+        </button>
+      </div>
+      
+      <!-- Selected Role Info -->
+      <div class="role-info" *ngIf="selectedRole !== 'all'">
+        <h3>Showing {{ filteredAgents.length }} {{ getSelectedRoleName() }} Agents</h3>
+      </div>
+    </div>
+
+    <!-- Agents Grid -->
+    <div *ngIf="!loading && !error" class="agents-grid">
+      <div *ngFor="let agent of filteredAgents" class="agent-card">
+        <div class="agent-image">
+          <img [src]="agent.displayIcon" [alt]="agent.displayName" (error)="handleImageError($event)">
+          <div class="agent-role" [style.background]="getRoleColor(agent.role?.displayName)">
+            <img [src]="agent.role?.displayIcon" [alt]="agent.role?.displayName" class="role-icon">
+            <span>{{ getRoleDisplayName(agent.role) }}</span>
+          </div>
+        </div>
+        
+        <div class="agent-info">
+          <h3>{{ agent.displayName }}</h3>
+          <p class="agent-description">{{ agent.description }}</p>
+          
+          <div class="agent-abilities">
+            <h4>Abilities</h4>
+            <div class="abilities-grid">
+              <div *ngFor="let ability of agent.abilities" class="ability">
+                <img [src]="ability.displayIcon" [alt]="ability.displayName" class="ability-icon">
+                <span class="ability-name">{{ ability.displayName }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Results Message -->
+    <div *ngIf="!loading && !error && filteredAgents.length === 0" class="no-results">
+      <h3>No agents found for this role</h3>
+      <p>Try selecting a different role filter</p>
+    </div>
+  </div>
+</div>
